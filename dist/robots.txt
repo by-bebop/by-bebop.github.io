@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://by-bebop.github.io/sitemap-index.xml

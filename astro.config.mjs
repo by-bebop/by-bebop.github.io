@@ -11,7 +11,7 @@ import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs"
 import { GithubCardComponent } from "./src/plugins/rehype-component-github-card.mjs"
 import { AdmonitionComponent } from "./src/plugins/rehype-component-admonition.mjs"
 import remarkDirective from "remark-directive" /* Handle directives */
-import remarkDirectiveRehype from 'remark-directive-rehype' /* Pass directives to rehype */
+import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-directives";
 import rehypeComponents from "rehype-components"; /* Render the custom directive content */
 import svelte from "@astrojs/svelte"
 import swup from '@swup/astro';
@@ -30,21 +30,21 @@ const oklchToHex = (str) => {
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://by-bebop.github.io",
+  site: "https:by-bebop.github.io",
   base: "/",
   trailingSlash: "always",
   integrations: [
     tailwind(),
-    // swup({
-    //   theme: true,
-    //   animationClass: 'transition-',
-    //   containers: ['main'],
-    //   smoothScrolling: true,
-    //   cache: true,
-    //   preload: true,
-    //   accessibility: true,
-    //   globalInstance: true,
-    // }),
+    swup({
+      theme: false,
+      animationClass: 'transition-',
+      containers: ['main'],
+      smoothScrolling: true,
+      cache: true,
+      preload: true,
+      accessibility: true,
+      globalInstance: true,
+    }),
     icon({
       include: {
         "material-symbols": ["*"],
